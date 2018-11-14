@@ -1,0 +1,32 @@
+boolean debug;
+
+const int toggle = 6;
+
+void setup()
+{
+  if (Serial) debug = 1; else debug = 0;
+
+  pinMode(toggle, OUTPUT);
+  digitalWrite(toggle, LOW);
+
+  if (debug)
+  {
+    Serial.begin(9600);
+    Serial.println("Setup");
+    digitalWrite(toggle, HIGH);
+    delay(1000);
+    digitalWrite(toggle, LOW);
+  }
+}
+
+void loop()
+{
+  if (debug)
+  {
+    Serial.println("Loop");
+    digitalWrite(toggle, HIGH);
+    delay(1000);
+    digitalWrite(toggle, LOW);
+    delay(1000);
+  }
+}
